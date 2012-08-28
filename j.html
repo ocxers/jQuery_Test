@@ -1,17 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
-  <input name="man-news" />
+    <input name="man-news" />
+    <input name="milk man" />
+    <input name="letterman2" />
+    <input name="newmilk" />
+    <input name="milk man 1234" />
+    <script>        $('input[name~="man"]').val('mr. man is in it!');</script>
+    <div>
+        <input type="radio" name="newsletter" value="Hot Fuzz" />
+        <span>name is newsletter</span>
+    </div>
+    <div>
+        <input type="radio" value="Cold Fusion" />
+        <span>no name</span>
+    </div>
+    <div>
+        <input type="radio" name="accept" value="Evil Plans" />
+        <span>name is accept</span>
+    </div>
+    <script>        //$('input[name!="newsletter"]').next().append('<b>; not newsletter</b>');
+        $(':radio').not('[name="newsletter"]').next().append('<b>; not newsletter</b>');
+    </script>
+    <form>
+    <fieldset>
+        <input type="button" value="Input Button" onclick="submit()" />
+        <button>
+            Button</button>
+        <input type="checkbox" />
+        <input type="file" />
+        <input type="hidden" />
+        <input type="image" />
+        <input type="password" />
+        <input type="radio" />
+        <input type="reset" />
+        <input type="submit" />
+        <input type="text" />
+        <select>
+            <option>Option<option />
+        </select>
+        <textarea></textarea>
+        <button>
+            Button</button>
+    </fieldset>
+    </form>
+    <div>
+    </div>
+    <script>
+        var input = $(":button").addClass("marked");
+        $("div").text("For this type jQuery found " + input.length + ".");
+        $("form").submit(function () { alert(); return false; });  // so it won't submit
+    </script>
+    <form>
+    <input type="button" value="Input Button" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="file" />
+    <input type="hidden" />
+    <input type="image" />
+    <input type="password" />
+    <input type="radio" />
+    <input type="reset" />
+    <input type="submit" />
+    <input type="text" />
+    <select>
+        <option>Option<option />
+    </select>
+    <textarea></textarea>
+    <button>
+        Button</button>
+    </form>
+    <div>
+    </div>
+    <script>
 
-  <input name="milk man" />
-  <input name="letterman2" />
-  <input name="newmilk" />
-
-  <input name="milk man 1234" />
-<script>$('input[name~="man"]').val('mr. man is in it!');</script>
-
+        var input = $("form input:checkbox").wrap('<span></span>').parent().css({ background: "yellow", border: "3px red solid" });
+        $("div").text("For this type jQuery found " + input.length + ".")
+            .css("color", "red");
+        $("form").submit(function () { return false; }); // so it won't submit
+        $('form input:checkbox').click(function () {
+            alert($(this).is(':checked'));
+        });
+    </script>
+    <div id="A">
+        hello world to everybody.
+    </div>
+    <script>
+        alert($('#A:contains("world")').css('color', 'red').children().wrap('<a href="#"><a>')); //.wrap('<a href="#"><a>');
+    </script>
 </body>
 </html>
